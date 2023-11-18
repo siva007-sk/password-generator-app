@@ -1,0 +1,179 @@
+$primaryColor: #dcdc73;
+$secomdaryColor: #8ffcb4;
+$backgroundColor: #252525;
+.wrapper {
+  background-color: $backgroundColor;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  padding: 10px;
+  border: 1px solid $secomdaryColor;
+  height: 30em;
+  width: 25em;
+}
+.display-wrapper {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-gap: 10px;
+  height: 3em;
+}
+.display {
+  border: 1px solid $primaryColor;
+  border-radius: 6px;
+  color: $primaryColor;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.6em;
+}
+.copy-btn {
+  background: none;
+  border: 1px solid $primaryColor;
+  border-radius: 6px;
+  width: 85%;
+  span {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    mask: url("./assets/copy.svg") no-repeat center;
+    -webkit-mask: url("./assets/copy.svg") no-repeat center;
+    background-color: $primaryColor;
+    mask-size: 1.5em;
+    -webkit-mask-size: 1.5em;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.btns-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80%;
+  margin-top: 2em;
+  letter-spacing: 1px;
+}
+.btn {
+  background: none;
+  height: 3em;
+  width: 100%;
+  border: 1px solid $primaryColor;
+  outline: none;
+  border-radius: 6px;
+  color: $primaryColor;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  line-height: 3em;
+}
+.custom-input {
+  display: flex;
+  align-items: center;
+  label {
+    color: $primaryColor;
+    font-size: 1.2em;
+  }
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 0.15em;
+    margin-right: 0.8em;
+    border: 0.15em solid $primaryColor;
+    outline: none;
+    cursor: pointer;
+    &:checked {
+      background-color: none;
+      position: relative;
+      &::before {
+        content: "\2714";
+        font-size: 1.5em;
+        color: $primaryColor;
+        position: absolute;
+        right: 1px;
+        top: -5px;
+      }
+    }
+  }
+}
+
+.text-container {
+  height: 1em;
+  width: 95%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  position: relative;
+  label {
+    color: $primaryColor;
+    font-size: 1.2em;
+  }
+  input[type="number"] {
+    height: 2em;
+    background: none;
+    outline: none;
+    border: 1px solid $primaryColor;
+    text-align: center;
+    color: $primaryColor;
+    font-size: 1em;
+    padding-right: 15px;
+
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button {
+      appearance: none;
+    }
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+  }
+}
+
+@mixin arrowBtn() {
+  color: $primaryColor;
+  font-size: 1em;
+  position: absolute;
+  width: 16px;
+  right: 0px;
+  height: 16px;
+  background: none;
+  border: 1px solid $primaryColor;
+}
+
+.upArrow {
+  @include arrowBtn();
+  top: 0px;
+}
+.downArrow {
+  @include arrowBtn();
+  bottom: -16px;
+}
+
+@mixin arrow() {
+  border: solid $primaryColor;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.up {
+  @include arrow();
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  @include arrow();
+  margin-bottom: 8px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
